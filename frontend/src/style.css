@@ -1,0 +1,238 @@
+:root {
+  --bg: #f5f6f8;
+  --card: #ffffff;
+  --text: #1a1d24;
+  --muted: #5c6370;
+  --accent: #2563eb;
+  --accent-soft: #e8effe;
+  --border: #e2e5eb;
+  --user-bg: #eef2f7;
+  --agent-bg: #e8f4f1;
+  --tool-bg: #f3f0ff;
+  --status-idle: #6b7280;
+  --status-listen: #0d9488;
+  --status-think: #d97706;
+  --status-speak: #7c3aed;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+  font-family:
+    "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN",
+    "Noto Sans JP",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 2.5rem;
+}
+
+.panel {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  padding: 1.5rem 1.35rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.sub {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0.2rem 0 0;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #ef4444;
+}
+.dot--on {
+  background: #22c55e;
+}
+
+.status-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.7rem;
+  border-radius: 8px;
+  color: #fff;
+}
+.badge--idle {
+  background: var(--status-idle);
+}
+.badge--listen {
+  background: var(--status-listen);
+}
+.badge--think {
+  background: var(--status-think);
+}
+.badge--speak {
+  background: var(--status-speak);
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  font: inherit;
+  font-weight: 600;
+  padding: 0.65rem 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.05s ease, box-shadow 0.15s ease, opacity 0.15s;
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+.btn--primary {
+  color: #fff;
+  background: var(--accent);
+  box-shadow: 0 2px 0 #1d4ed8;
+}
+.btn--primary:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+.btn--ghost {
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+}
+
+.transcript {
+  min-height: 200px;
+  max-height: 42vh;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  background: #fafbfc;
+  font-size: 0.92rem;
+}
+
+.bubble {
+  margin-bottom: 0.7rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 8px;
+  max-width: 100%;
+  word-break: break-word;
+}
+.bubble--user {
+  background: var(--user-bg);
+  border-left: 3px solid #94a3b8;
+}
+.bubble--agent {
+  background: var(--agent-bg);
+  border-left: 3px solid #14b8a6;
+}
+.bubble--tool {
+  background: var(--tool-bg);
+  border-left: 3px solid #8b5cf6;
+  font-size: 0.85rem;
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+}
+
+.bubble__label {
+  display: block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 0.15rem;
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 0.88rem;
+  text-align: center;
+  padding: 2rem 0.5rem;
+}
+
+.error {
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.86rem;
+  margin-bottom: 0.8rem;
+}
+
+footer {
+  margin-top: 1.5rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .header {
+    flex-wrap: nowrap;
+  }
+}
